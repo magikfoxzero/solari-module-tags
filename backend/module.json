@@ -1,0 +1,25 @@
+{
+    "id": "tags",
+    "name": "Tags",
+    "version": "1.0.0",
+    "description": "Tag management for categorization and organization",
+    "type": "mini-app",
+    "core_version": ">=1.0.0",
+    "dependencies": {
+        "core": ">=1.0.0"
+    },
+    "optional_dependencies": {},
+    "routes": {
+        "prefix": "/api/tags",
+        "middleware": ["auth.api", "module.enabled:tags", "partition.app:tags-mini-app"]
+    },
+    "frontend": {
+        "navigation": {
+            "label": "Tags",
+            "icon": "tag",
+            "section": "apps",
+            "path": "/apps/tags",
+            "order": 40
+        }
+    }
+}

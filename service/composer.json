@@ -1,0 +1,38 @@
+{
+    "name": "newsolari/tags-service",
+    "description": "Standalone service for Tags module",
+    "type": "project",
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^12.0",
+        "newsolari/core": "@dev",
+        "newsolari/tags": "*"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../backend",
+            "options": { "symlink": true }
+        },
+        {
+            "type": "path",
+            "url": "/opt/projects/SolariWebOS/webos/packages/core",
+            "options": { "symlink": true }
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

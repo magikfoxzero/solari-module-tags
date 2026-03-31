@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Configuration\Exceptions;
+use Illuminate\Foundation\Configuration\Middleware;
+
+return Application::configure(basePath: dirname(__DIR__))
+    ->withProviders([
+        \NewSolari\Core\CoreServiceProvider::class,
+        \NewSolari\Tags\TagsServiceProvider::class,
+    ])
+    ->withRouting(
+        api: __DIR__.'/../routes/api.php',
+    )
+    ->withMiddleware(function (Middleware $middleware) {
+        // CORS must be global — module routes aren't in the api middleware group
+        $middleware->prepend([
+            \NewSolari\Core\Security\CorsMiddleware::class,
+        ]);
+
+        $middleware->alias([
+            'auth.api' => \NewSolari\Core\Security\AuthenticationMiddleware::class,
+            'module.enabled' => \NewSolari\Core\Module\Middleware\EnsureModuleEnabled::class,
+            'partition.app' => \NewSolari\Core\Module\Middleware\CheckPartitionAppEnabled::class,
+            'permission' => \NewSolari\Core\Security\CheckPermission::class,
+            'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        ]);
+    })
+    ->withExceptions(function (Exceptions $exceptions) {
+        //
+    })->create();
