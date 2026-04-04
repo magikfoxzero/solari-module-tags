@@ -57,7 +57,7 @@ class TagsControllerTest extends TestCase
         $this->regularUser->partitions()->attach($this->partition->record_id);
 
         // Create permissions
-        $tagReadPermission = \App\Core\Entities\Permission::create([
+        $tagReadPermission = \NewSolari\Core\Identity\Models\Permission::create([
             'record_id' => 'perm-tags-read',
             'name' => 'tags.read',
             'permission_type' => 'Read',
@@ -66,7 +66,7 @@ class TagsControllerTest extends TestCase
             'plugin_id' => 'tags-mini-app',
         ]);
 
-        $tagCreatePermission = \App\Core\Entities\Permission::create([
+        $tagCreatePermission = \NewSolari\Core\Identity\Models\Permission::create([
             'record_id' => 'perm-tags-create',
             'name' => 'tags.create',
             'permission_type' => 'Create',
@@ -75,7 +75,7 @@ class TagsControllerTest extends TestCase
             'plugin_id' => 'tags-mini-app',
         ]);
 
-        $regularUserGroup = \App\Core\Entities\Group::create([
+        $regularUserGroup = \NewSolari\Core\Identity\Models\Group::create([
             'record_id' => 'group-regular-users',
             'name' => 'Regular Users',
             'partition_id' => $this->partition->record_id,

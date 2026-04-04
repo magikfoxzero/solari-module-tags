@@ -14,6 +14,12 @@ class TagsServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        // Register polymorphic morph map
+        \Illuminate\Database\Eloquent\Relations\Relation::morphMap([
+            'tag' => \NewSolari\Tags\Models\Tag::class,
+            'tags' => \NewSolari\Tags\Models\Tag::class,
+        ]);
+
         // Register with module system
         if ($this->app->bound(ModuleRegistry::class)) {
             app(ModuleRegistry::class)->register(app(TagsModule::class));

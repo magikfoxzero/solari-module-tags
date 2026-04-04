@@ -12,4 +12,5 @@ return [
     'maintenance' => [
         'driver' => 'file',
     ],
+    'allow_test_authentication' => (bool) env('ALLOW_TEST_AUTHENTICATION', false),
 ];

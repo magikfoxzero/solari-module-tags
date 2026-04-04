@@ -16,6 +16,7 @@ return [
         ],
         'sqlite' => [
             'driver' => 'sqlite',
+            'foreign_key_constraints' => true,
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],

@@ -16,6 +16,8 @@ return Application::configure(basePath: dirname(__DIR__))
         // CORS must be global — module routes aren't in the api middleware group
         $middleware->prepend([
             \NewSolari\Core\Security\CorsMiddleware::class,
+            \NewSolari\Core\Security\SecurityMiddleware::class,
+            \NewSolari\Core\Security\TestAuthenticationMiddleware::class,
         ]);
 
         $middleware->alias([
