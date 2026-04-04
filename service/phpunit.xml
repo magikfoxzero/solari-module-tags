@@ -28,5 +28,6 @@
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="ALLOW_TEST_AUTHENTICATION" value="true"/>
+        <env name="RATE_LIMIT_MAX_ATTEMPTS" value="10000"/>
     </php>
 </phpunit>
