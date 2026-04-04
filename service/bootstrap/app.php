@@ -24,6 +24,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'partition.app' => \NewSolari\Core\Module\Middleware\CheckPartitionAppEnabled::class,
             'permission' => \NewSolari\Core\Security\CheckPermission::class,
             'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+            'test.auth' => \NewSolari\Core\Security\TestAuthenticationMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
