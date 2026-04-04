@@ -118,4 +118,17 @@ return [
     */
 
     'max_request_size' => env('SECURITY_MAX_REQUEST_SIZE', 2147483648), // 2GB default
+
+    /*
+    |--------------------------------------------------------------------------
+    | Naughty Words List
+    |--------------------------------------------------------------------------
+    |
+    | Comma-separated list of words to filter from user-generated content.
+    | The NaughtyWordsFilter middleware and NoNaughtyWords validation rule
+    | use this list. Empty string disables filtering.
+    |
+    */
+
+    'naughty_words_list' => env('NAUGHTY_WORDS_LIST', ''),
 ];
