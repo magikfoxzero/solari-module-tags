@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { DynamicIcon, getAvailableIcons } from '@/components/common/DynamicIcon';
 import { createTag, updateTag } from '../api';
-import { addItemToFolder } from '@/api/folders.api';
+import { addItemToFolder } from '@/modules/folders/api';
 import { useFolderFilterStore } from '@/store/folderFilterStore';
 import type { Tag, TagCreateInput } from '@/types/models';
 import { toast } from '@/store/toastStore';
