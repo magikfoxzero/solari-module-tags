@@ -19,6 +19,13 @@ const module: ModuleFrontend = {
         }));
       },
       defaultRelationship: 'tagged_with',
+      label: 'Tag',
+      pluralLabel: 'Tags',
+      icon: 'Hash',
+      color: '#00BCD4',
+      detailPath: '/apps/tags',
+      pluginId: 'tags-mini-app',
+      pluralEntityType: 'tags',
     });
   },
   navigation: {
