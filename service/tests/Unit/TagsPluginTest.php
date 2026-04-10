@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Plugins\Apps\MiniApps;
+namespace Tests\Unit;
 
 use NewSolari\Core\Identity\Models\IdentityPartition;
 use NewSolari\Core\Identity\Models\IdentityUser;
