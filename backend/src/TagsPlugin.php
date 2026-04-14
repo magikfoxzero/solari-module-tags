@@ -3,6 +3,7 @@
 namespace NewSolari\Tags;
 
 use NewSolari\Identity\Models\IdentityUser;
+use NewSolari\Core\Contracts\IdentityUserContract;
 use NewSolari\Core\Plugin\MiniAppBase;
 use Illuminate\Support\Facades\Log;
 
@@ -99,7 +100,7 @@ class TagsPlugin extends MiniAppBase
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function getTagsQuery(IdentityUser $user, array $filters = [], bool $withRelations = false)
+    public function getTagsQuery(IdentityUserContract $user, array $filters = [], bool $withRelations = false)
     {
         $query = $this->getDataQuery($user, $filters);
 
@@ -116,7 +117,7 @@ class TagsPlugin extends MiniAppBase
      *
      * @throws \Exception
      */
-    public function createTagWithRelations(array $data, IdentityUser $user): \NewSolari\Tags\Models\Tag
+    public function createTagWithRelations(array $data, IdentityUserContract $user): \NewSolari\Tags\Models\Tag
     {
         try {
             // Create the tag
@@ -152,7 +153,7 @@ class TagsPlugin extends MiniAppBase
     /**
      * Export tags data
      */
-    public function exportTags(IdentityUser $user, array $filters = [], string $format = 'json'): array
+    public function exportTags(IdentityUserContract $user, array $filters = [], string $format = 'json'): array
     {
         // Check export permission
         if (! $this->checkUserPermission($user, 'tags.export')) {
@@ -222,7 +223,7 @@ class TagsPlugin extends MiniAppBase
     /**
      * Get tags statistics
      */
-    public function getStatistics(IdentityUser $user): array
+    public function getStatistics(IdentityUserContract $user): array
     {
         $query = $this->getDataQuery($user);
         $tags = $query->get();
