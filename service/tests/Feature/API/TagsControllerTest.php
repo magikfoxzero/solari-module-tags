@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\API;
 
-use NewSolari\Core\Identity\Models\IdentityPartition;
-use NewSolari\Core\Identity\Models\IdentityUser;
+use NewSolari\Identity\Models\IdentityPartition;
+use NewSolari\Identity\Models\IdentityUser;
 use NewSolari\Tags\Models\Tag;
 use NewSolari\Tags\TagsPlugin;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -57,7 +57,7 @@ class TagsControllerTest extends TestCase
         $this->regularUser->partitions()->attach($this->partition->record_id);
 
         // Create permissions
-        $tagReadPermission = \NewSolari\Core\Identity\Models\Permission::create([
+        $tagReadPermission = \NewSolari\Identity\Models\Permission::create([
             'record_id' => 'perm-tags-read',
             'name' => 'tags.read',
             'permission_type' => 'Read',
@@ -66,7 +66,7 @@ class TagsControllerTest extends TestCase
             'plugin_id' => 'tags-mini-app',
         ]);
 
-        $tagCreatePermission = \NewSolari\Core\Identity\Models\Permission::create([
+        $tagCreatePermission = \NewSolari\Identity\Models\Permission::create([
             'record_id' => 'perm-tags-create',
             'name' => 'tags.create',
             'permission_type' => 'Create',
@@ -75,7 +75,7 @@ class TagsControllerTest extends TestCase
             'plugin_id' => 'tags-mini-app',
         ]);
 
-        $regularUserGroup = \NewSolari\Core\Identity\Models\Group::create([
+        $regularUserGroup = \NewSolari\Identity\Models\Group::create([
             'record_id' => 'group-regular-users',
             'name' => 'Regular Users',
             'partition_id' => $this->partition->record_id,

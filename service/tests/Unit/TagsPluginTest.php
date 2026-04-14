@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use NewSolari\Core\Identity\Models\IdentityPartition;
-use NewSolari\Core\Identity\Models\IdentityUser;
+use NewSolari\Identity\Models\IdentityPartition;
+use NewSolari\Identity\Models\IdentityUser;
 use NewSolari\Tags\Models\Tag;
 use NewSolari\Tags\TagsPlugin;
 use Illuminate\Foundation\Testing\RefreshDatabase;
