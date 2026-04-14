@@ -2,7 +2,7 @@
 
 namespace NewSolari\Tags;
 
-use NewSolari\Core\Identity\Models\IdentityUser;
+use NewSolari\Identity\Models\IdentityUser;
 use NewSolari\Core\Plugin\MiniAppBase;
 use Illuminate\Support\Facades\Log;
 
