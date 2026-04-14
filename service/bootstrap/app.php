@@ -7,6 +7,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 return Application::configure(basePath: dirname(__DIR__))
     ->withProviders([
         \NewSolari\Core\CoreServiceProvider::class,
+        \NewSolari\Identity\IdentityServiceProvider::class,
         \NewSolari\Tags\TagsServiceProvider::class,
     ])
     ->withRouting(
