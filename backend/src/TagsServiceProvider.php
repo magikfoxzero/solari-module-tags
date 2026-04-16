@@ -25,6 +25,12 @@ class TagsServiceProvider extends ServiceProvider
             app(ModuleRegistry::class)->register(app(TagsModule::class));
         }
 
+        // Register with shareable type registry
+        if (app()->bound(\NewSolari\Core\Services\ShareableTypeRegistry::class)) {
+            app(\NewSolari\Core\Services\ShareableTypeRegistry::class)
+                ->register('tags', \NewSolari\Tags\Models\Tag::class, 'tag');
+        }
+
         // Load routes
         $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
 
